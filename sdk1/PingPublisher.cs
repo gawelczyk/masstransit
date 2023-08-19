@@ -21,7 +21,8 @@ namespace sdk1
                 var keyPressed = Console.ReadKey(true);
                 if (keyPressed.Key != ConsoleKey.Escape)
                 {
-                    logger.LogInformation("Pressed {Button}", keyPressed.Key.ToString());
+                    //logger.LogInformation("Pressed {Button}", keyPressed.Key.ToString());
+                    await bus.Publish(new Ping(keyPressed.Key.ToString()));
                 }
                 await Task.Delay(200);
             }
