@@ -24,6 +24,10 @@ namespace sdk1
                     //logger.LogInformation("Pressed {Button}", keyPressed.Key.ToString());
                     await bus.Publish(new Ping(keyPressed.Key.ToString()));
                 }
+                else
+                {
+                    Environment.Exit(1);
+                }
                 await Task.Delay(200);
             }
         }
